@@ -3,4 +3,5 @@ using AdventOfCode2023.SolutionsByDay.Day2;
 
 // Console.WriteLine("Day 1 Part 1:" + new Day1().GetDay1Part1Solution().ToString());
 // Console.WriteLine("Day 1 Part 2:" + new Day1().GetDay1Part2Solution().ToString());
-Console.WriteLine("Day 1 Part 2:" + new Day2().GetPart1Solution().ToString());
+Console.WriteLine("Day 2 Part 1:" + new Day2().GetPart1Solution().ToString());
+Console.WriteLine("Day 2 Part 2:" + new Day2().GetPart2Solution().ToString());
