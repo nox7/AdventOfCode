@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode2023.SolutionsByDay
+namespace AdventOfCode2023.SolutionsByDay.Day1
 {
     internal class Day1 : DaySolution
     {
@@ -46,7 +46,7 @@ namespace AdventOfCode2023.SolutionsByDay
                 foreach (char c in line)
                 {
                     // Add only digits to the buffer
-                    if (Char.IsDigit(c))
+                    if (char.IsDigit(c))
                     {
                         currentDigitBuffer += c;
                     }
@@ -56,14 +56,14 @@ namespace AdventOfCode2023.SolutionsByDay
                 if (currentDigitBuffer.Length == 1)
                 {
                     // Special case, duplicate the digit
-                    currentSum += Int32.Parse(new string(currentDigitBuffer.ToCharArray()[0], 2));
+                    currentSum += int.Parse(new string(currentDigitBuffer.ToCharArray()[0], 2));
                 }
                 else if (currentDigitBuffer.Length > 0)
                 {
                     // Turn the digit buffer into an array of characters, only use the first and last character to
                     // create an integer with
                     char[] digitBufferAsCharArray = currentDigitBuffer.ToCharArray();
-                    currentSum += Int32.Parse(
+                    currentSum += int.Parse(
                         digitBufferAsCharArray[0].ToString() + digitBufferAsCharArray[digitBufferAsCharArray.Length - 1].ToString()
                         );
                 }
@@ -100,7 +100,7 @@ namespace AdventOfCode2023.SolutionsByDay
                 foreach (char c in line)
                 {
                     // Only add non-digit characters to the buffer
-                    if (Char.IsDigit(c))
+                    if (char.IsDigit(c))
                     {
                         currentDigitLikeBuffer.Add(c.ToString());
                         currentBuffer = "";
@@ -130,7 +130,7 @@ namespace AdventOfCode2023.SolutionsByDay
                 if (currentDigitLikeBuffer.Count == 1)
                 {
                     // Duplicate the first index
-                    int sumToAdd = Int32.Parse(
+                    int sumToAdd = int.Parse(
                         new string(
                             GetIntFromDigitBufferValue(currentDigitLikeBuffer[0]).ToString().ToCharArray()[0],
                             2
@@ -144,7 +144,7 @@ namespace AdventOfCode2023.SolutionsByDay
                     string fromFirstIndex = GetIntFromDigitBufferValue(currentDigitLikeBuffer[0]).ToString();
                     string fromLastIndex = GetIntFromDigitBufferValue(currentDigitLikeBuffer[currentDigitLikeBuffer.Count - 1]).ToString();
 
-                    int sumToAdd = Int32.Parse(fromFirstIndex + fromLastIndex);
+                    int sumToAdd = int.Parse(fromFirstIndex + fromLastIndex);
                     currentSum += sumToAdd;
                 }
 
@@ -161,7 +161,7 @@ namespace AdventOfCode2023.SolutionsByDay
         {
             if (bufferValue.ToCharArray().Length == 1)
             {
-                return Int32.Parse(bufferValue);
+                return int.Parse(bufferValue);
             }
             else
             {
