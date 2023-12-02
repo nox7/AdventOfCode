@@ -160,6 +160,13 @@ namespace AdventOfCode2023.SolutionsByDay.Day2
             }
         }
 
+        /// <summary>
+        /// Sets either the NumRedCubes, NumBlueCubes, or NumGreenCubes property of the provided currentRoll to the provided rollCount
+        /// based on the provided cubeColorName.
+        /// </summary>
+        /// <param name="currentRoll"></param>
+        /// <param name="cubeColorName"></param>
+        /// <param name="rollCount"></param>
         private void SetGameRollPropertyFromCubeColorName(GameRoll currentRoll, string cubeColorName, int rollCount)
         {
             if (cubeColorName == "red")
