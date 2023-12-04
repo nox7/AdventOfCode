@@ -50,8 +50,8 @@ namespace AdventOfCode2023.SolutionsByDay.Day4
                 // Parse the current line as a Card object
                 Card card = Card.ParseCardLine(line);
 
-                // Try to add 1 to the current number of card copies of this Id
-                // If it fails, then add 1 instead
+                // Try to set 1 to the current number of card copies of this Id
+                // If it fails, then add 1 instead (key already exists)
                 if (!totalCardsAndCopies.TryAdd(card.CardId, 1))
                 {
                     totalCardsAndCopies[card.CardId]++;
@@ -69,10 +69,10 @@ namespace AdventOfCode2023.SolutionsByDay.Day4
                 {
                     int cardIdWonCopyOf = card.CardId + i;
 
-                    // Try to add to the copies of the cardId iterated on
+                    // Try to set the key of the cardIdWonCopyOf to 1 * number of copies of the parent loop card
                     if (!totalCardsAndCopies.TryAdd(cardIdWonCopyOf, 1 * numberOfCopiesOfThisCard))
                     {
-                        // It failed, so create a new key and set it to 1 copy count
+                        // It failed, the key already exists. So add 1 * number of copies of the parent loop card
                         totalCardsAndCopies[cardIdWonCopyOf] += 1 * numberOfCopiesOfThisCard;
                     }
                 }
