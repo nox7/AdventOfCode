@@ -11,17 +11,17 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
     {
         public List<long> Seeds = [];
         public List<NumericRange> SeedsAsRanges = []; // For Day 5 part 2
-        public List<RowMap> SeedToSoilMap = [];
-        public List<RowMap> SoilToFertilzerMap = [];
-        public List<RowMap> FertilzerToWaterMap = [];
-        public List<RowMap> WaterToLightMap = [];
-        public List<RowMap> LightToTemperatureMap = [];
-        public List<RowMap> TemperatureToHumidtyMap = [];
-        public List<RowMap> HumidityToLocationMap = [];
+        public List<RowMap> SeedToSoilMaps = [];
+        public List<RowMap> SoilToFertilzerMaps = [];
+        public List<RowMap> FertilzerToWaterMaps = [];
+        public List<RowMap> WaterToLightMaps = [];
+        public List<RowMap> LightToTemperatureMaps = [];
+        public List<RowMap> TemperatureToHumidtyMaps = [];
+        public List<RowMap> HumidityToLocationMaps = [];
 
         public long GetSoilFromSeed(long seed)
         {
-            foreach(RowMap map in SeedToSoilMap)
+            foreach(RowMap map in SeedToSoilMaps)
             {
                 if (map.Source.IsInRange(seed))
                 {
@@ -36,7 +36,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
 
         public long GetFertilizerFromSoil(long soil)
         {
-            foreach (RowMap map in SoilToFertilzerMap)
+            foreach (RowMap map in SoilToFertilzerMaps)
             {
                 if (map.Source.IsInRange(soil))
                 {
@@ -51,7 +51,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
 
         public long GetWaterFromFertilizer(long fertilizer)
         {
-            foreach (RowMap map in FertilzerToWaterMap)
+            foreach (RowMap map in FertilzerToWaterMaps)
             {
                 if (map.Source.IsInRange(fertilizer))
                 {
@@ -66,7 +66,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
 
         public long GetLightFromWater(long water)
         {
-            foreach (RowMap map in WaterToLightMap)
+            foreach (RowMap map in WaterToLightMaps)
             {
                 if (map.Source.IsInRange(water))
                 {
@@ -81,7 +81,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
 
         public long GetTemperatureFromLight(long light)
         {
-            foreach (RowMap map in LightToTemperatureMap)
+            foreach (RowMap map in LightToTemperatureMaps)
             {
                 if (map.Source.IsInRange(light))
                 {
@@ -96,7 +96,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
 
         public long GetHumidityFromTemperature(long temperature)
         {
-            foreach (RowMap map in TemperatureToHumidtyMap)
+            foreach (RowMap map in TemperatureToHumidtyMaps)
             {
                 if (map.Source.IsInRange(temperature))
                 {
@@ -111,7 +111,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
 
         public long GetLocationFromHumidity(long humidity)
         {
-            foreach (RowMap map in HumidityToLocationMap)
+            foreach (RowMap map in HumidityToLocationMaps)
             {
                 if (map.Source.IsInRange(humidity))
                 {
@@ -212,7 +212,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
                                 if (isLastCharacterOnLine)
                                 {
                                     currentNumbersParsed.Add(Int64.Parse(currentLineBuffer));
-                                    result.SeedToSoilMap.Add(new RowMap()
+                                    result.SeedToSoilMaps.Add(new RowMap()
                                     {
                                         Destination = new NumericRange()
                                         {
@@ -258,7 +258,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
                                 if (isLastCharacterOnLine)
                                 {
                                     currentNumbersParsed.Add(Int64.Parse(currentLineBuffer));
-                                    result.SoilToFertilzerMap.Add(new RowMap()
+                                    result.SoilToFertilzerMaps.Add(new RowMap()
                                     {
                                         Destination = new NumericRange()
                                         {
@@ -304,7 +304,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
                                 if (isLastCharacterOnLine)
                                 {
                                     currentNumbersParsed.Add(Int64.Parse(currentLineBuffer));
-                                    result.FertilzerToWaterMap.Add(new RowMap()
+                                    result.FertilzerToWaterMaps.Add(new RowMap()
                                     {
                                         Destination = new NumericRange()
                                         {
@@ -350,7 +350,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
                                 if (isLastCharacterOnLine)
                                 {
                                     currentNumbersParsed.Add(Int64.Parse(currentLineBuffer));
-                                    result.WaterToLightMap.Add(new RowMap()
+                                    result.WaterToLightMaps.Add(new RowMap()
                                     {
                                         Destination = new NumericRange()
                                         {
@@ -396,7 +396,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
                                 if (isLastCharacterOnLine)
                                 {
                                     currentNumbersParsed.Add(Int64.Parse(currentLineBuffer));
-                                    result.LightToTemperatureMap.Add(new RowMap()
+                                    result.LightToTemperatureMaps.Add(new RowMap()
                                     {
                                         Destination = new NumericRange()
                                         {
@@ -442,7 +442,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
                                 if (isLastCharacterOnLine)
                                 {
                                     currentNumbersParsed.Add(Int64.Parse(currentLineBuffer));
-                                    result.TemperatureToHumidtyMap.Add(new RowMap()
+                                    result.TemperatureToHumidtyMaps.Add(new RowMap()
                                     {
                                         Destination = new NumericRange()
                                         {
@@ -488,7 +488,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
                                 if (isLastCharacterOnLine)
                                 {
                                     currentNumbersParsed.Add(Int64.Parse(currentLineBuffer));
-                                    result.HumidityToLocationMap.Add(new RowMap()
+                                    result.HumidityToLocationMaps.Add(new RowMap()
                                     {
                                         Destination = new NumericRange()
                                         {
