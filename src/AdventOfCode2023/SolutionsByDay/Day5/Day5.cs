@@ -126,9 +126,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
                         newActiveRanges.Add(validDestinationRange);
 
                         // Subtract out the validSourceRange from the current active range
-                        Console.WriteLine();
                         activeRange.Subtract(validSourceRange);
-                        Console.WriteLine();
                     }
                 }
             }
@@ -156,9 +154,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
                         newActiveRanges.Add(validDestinationRange);
 
                         // Subtract out the validSourceRange from the current active range
-                        Console.WriteLine();
                         activeRange.Subtract(validSourceRange);
-                        Console.WriteLine();
                     }
                 }
             }
@@ -186,9 +182,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
                         newActiveRanges.Add(validDestinationRange);
 
                         // Subtract out the validSourceRange from the current active range
-                        Console.WriteLine();
                         activeRange.Subtract(validSourceRange);
-                        Console.WriteLine();
                     }
                 }
             }
@@ -216,9 +210,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
                         newActiveRanges.Add(validDestinationRange);
 
                         // Subtract out the validSourceRange from the current active range
-                        Console.WriteLine();
                         activeRange.Subtract(validSourceRange);
-                        Console.WriteLine();
                     }
                 }
             }
@@ -246,9 +238,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
                         newActiveRanges.Add(validDestinationRange);
 
                         // Subtract out the validSourceRange from the current active range
-                        Console.WriteLine();
                         activeRange.Subtract(validSourceRange);
-                        Console.WriteLine();
                     }
                 }
             }

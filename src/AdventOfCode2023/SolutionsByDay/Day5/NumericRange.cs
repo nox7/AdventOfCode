@@ -70,19 +70,6 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
                     Start = otherRange.End + 1,
                     End = originalEnd
                 };
-                /*return new List<NumericRange>()
-                {
-                    new NumericRange()
-                    {
-                        Start = Start,
-                        End = otherRange.End
-                    },
-                    new NumericRange()
-                    {
-                        Start = otherRange.End,
-                        End = End
-                    }
-                };*/
             }
             else
             {
@@ -97,21 +84,11 @@ namespace AdventOfCode2023.SolutionsByDay.Day5
                 // Just one range
                 if (otherRange.Start <= Start)
                 {
-                    /*return new NumericRange()
-                    {
-                        Start = otherRange.End,
-                        End = End
-                    };*/
                     Start = otherRange.End + 1;
                 }
                 else
                 {
                     End = otherRange.Start - 1;
-                    /*return new NumericRange()
-                    {
-                        Start = Start,
-                        End = otherRange.Start
-                    };*/
                 }
 
                 return null;
