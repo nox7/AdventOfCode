@@ -82,6 +82,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day6
             string line2 = streamReader.ReadLine()!;
 
             // Get the numbers from lines one and two
+            // For part 2, remove all spaces between numbers to treat them as one large number
             string[] line1Numbers = Regex.Replace(line1.Split(":")[1], @"\s+", "").Trim().Split(" ");
             string[] line2Numbers = Regex.Replace(line2.Split(":")[1], @"\s+", "").Trim().Split(" ");
 
