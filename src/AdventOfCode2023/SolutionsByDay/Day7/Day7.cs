@@ -82,7 +82,9 @@ namespace AdventOfCode2023.SolutionsByDay.Day7
 
             long totalWinnings = 0;
             int currentRank = 1;
-            // Starting from the highCardHands, calculate the rank * bid and add it to the accumulator
+
+            // Starting from the highCardHands, calculate the that hand's total winnings by currentRank * Bid
+            // Add it to the accumulator, then increment the rank for the next iteration
             highCardHands.ForEach(cardHand => { totalWinnings += currentRank * cardHand.Bid; ++currentRank; });
             onePairHands.ForEach(cardHand => { totalWinnings += currentRank * cardHand.Bid; ++currentRank; });
             twoPairHands.ForEach(cardHand => { totalWinnings += currentRank * cardHand.Bid; ++currentRank; });
