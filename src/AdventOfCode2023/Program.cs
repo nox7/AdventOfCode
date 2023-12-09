@@ -6,6 +6,7 @@ using AdventOfCode2023.SolutionsByDay.Day5;
 using AdventOfCode2023.SolutionsByDay.Day6;
 using AdventOfCode2023.SolutionsByDay.Day7;
 using AdventOfCode2023.SolutionsByDay.Day8;
+using System.Diagnostics;
 
 // Console.WriteLine("Day 1 Part 1:" + new Day1().GetDay1Part1Solution().ToString());
 // Console.WriteLine("Day 1 Part 2:" + new Day1().GetDay1Part2Solution().ToString());
@@ -22,4 +23,8 @@ using AdventOfCode2023.SolutionsByDay.Day8;
 // Console.WriteLine("Day 7 Part 1:" + new Day7().GetPart1Solution().ToString());
 // Console.WriteLine("Day 7 Part 2:" + new Day7().GetPart2Solution().ToString());
 // Console.WriteLine("Day 8 Part 1:" + new Day8().GetPart1Solution().ToString());
+Stopwatch sw = new();
+sw.Start();
 Console.WriteLine("Day 8 Part 2:" + new Day8().GetPart2Solution().ToString());
+sw.Stop();
+Console.WriteLine("Time taken: " + sw.ElapsedMilliseconds + "ms");
