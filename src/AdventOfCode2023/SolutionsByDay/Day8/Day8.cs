@@ -197,22 +197,22 @@ namespace AdventOfCode2023.SolutionsByDay.Day7
             } while (multiplesUntilEndIsHit.All(kvp => kvp.Value > 0) == false); // End when all nodes end with a Z location
 
             // Find the LCM of all the multiples
-            long LCM = MathUtil.LeastCommonMultiple(
-                multiplesUntilEndIsHit[0],
-                MathUtil.LeastCommonMultiple(
-                    multiplesUntilEndIsHit[1],
-                    MathUtil.LeastCommonMultiple(
-                        multiplesUntilEndIsHit[2],
-                        MathUtil.LeastCommonMultiple(
-                            multiplesUntilEndIsHit[3],
-                            MathUtil.LeastCommonMultiple(
-                                multiplesUntilEndIsHit[4],
-                                multiplesUntilEndIsHit[5]
-                                )
-                            )
-                        )
-                    )
-                );
+            // LCMs for a list of numbers can be calculated by getting the LCM of the last two numbers and using that answer to calculate the LCM
+            // of the first numbers (backwards recursion)
+            long LCM = 0;
+            for (int i = multiplesUntilEndIsHit.Count - 1; i >= 0; i--)
+            {
+                if (LCM == 0)
+                {
+                    LCM = MathUtil.LeastCommonMultiple(multiplesUntilEndIsHit[i-1], multiplesUntilEndIsHit[i]);
+                    --i; // Make i go down by another increment to skip the next LCM iteration
+                    // This iteration takes care of i and i - 1, so move to i - 2
+                }
+                else
+                {
+                    LCM = MathUtil.LeastCommonMultiple(multiplesUntilEndIsHit[i], LCM);
+                }
+            }
 
             return LCM;
         }
