@@ -201,6 +201,9 @@ namespace AdventOfCode2023.SolutionsByDay.Day10
                 bool inRay = false;
                 foreach(GridPoint point in listOfGridPoints)
                 {
+                    // Check if the DistanceFromStart is none-null
+                    // A Null DistanceFromStart means the point is NOT part of the animal-traversed piping system,
+                    // A Non-Null DistanceFromStart means this is a pipe the animal traversed
                     if (point.DistanceFromStart != null)
                     {
                         if (point.Character == 'F' || point.Character == '7' || point.Character == '|' || point.Character == 'S')
