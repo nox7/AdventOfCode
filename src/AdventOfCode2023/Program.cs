@@ -30,7 +30,7 @@ using System.Diagnostics;
 // Console.WriteLine("Day 9 Part 2:" + new Day9().GetPart2Solution().ToString());
 Stopwatch sw = new();
 sw.Start();
-// Console.WriteLine("Day 10 Part 1:" + new Day10().GetPart1Solution().ToString());
+Console.WriteLine("Day 10 Part 1:" + new Day10().GetPart1Solution().ToString());
 Console.WriteLine("Day 10 Part 2:" + new Day10().GetPart2Solution().ToString());
 sw.Stop();
 Console.WriteLine("Time taken: " + sw.ElapsedMilliseconds + "ms");
