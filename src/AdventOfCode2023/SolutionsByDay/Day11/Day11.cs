@@ -23,7 +23,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day11
             string? line = null;
 
             SpaceGrid grid = new();
-            List<SpaceLocation> galaxies = new();
+            List<SpaceLocation> galaxies = [];
 
             // Iterate over each map line until the line is null
             int currentGalaxyId = 1;
@@ -86,7 +86,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day11
             string? line = null;
 
             SpaceGrid grid = new();
-            List<SpaceLocation> galaxies = new();
+            List<SpaceLocation> galaxies = [];
 
             // Iterate over each map line until the line is null
             int currentGalaxyId = 1;
