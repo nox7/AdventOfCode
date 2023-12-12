@@ -137,6 +137,8 @@ namespace AdventOfCode2023.SolutionsByDay.Day11
 
         /// <summary>
         /// Determines the sum of the horizontal + vertical distance. Providing spaceExpansionModifier of 1 will add 1 for every empty row or column there is (space expansion). Set it to 0 for no expansion.
+        /// 
+        /// For part to, send in 999,999 and not 1,000,000 because it will add 999,999 for a total of one-million in expansion.
         /// </summary>
         /// <param name="location1"></param>
         /// <param name="location2"></param>
