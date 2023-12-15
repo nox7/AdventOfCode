@@ -62,6 +62,9 @@ namespace AdventOfCode2023.SolutionsByDay.Day14
 			List<long> fourthCycleMemory = [];
 			for (long cycleIndex = 1; cycleIndex <= maxIterations; cycleIndex++)
 			{
+				// Todo: Store each rotationIndex's load in lists,
+				// and when they all appear in each list already then push the cycleIndex
+
 				// Roll, then rotate. A cycle is 4 rolls and 4 rotations
 				for (long rotationIndex = 1; rotationIndex <= 4; rotationIndex++)
 				{
@@ -74,7 +77,7 @@ namespace AdventOfCode2023.SolutionsByDay.Day14
 					{
 						if (fourthCycleMemory.Contains(loadAfterRolling))
 						{
-							cycleIndex = maxIterations - cycleIndex;
+							cycleIndex = maxIterations - cycleIndex - 1;
 						}
 						else
 						{
