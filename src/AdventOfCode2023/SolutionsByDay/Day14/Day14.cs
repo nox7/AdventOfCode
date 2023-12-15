@@ -27,15 +27,6 @@ namespace AdventOfCode2023.SolutionsByDay.Day14
 			var rocksAsDictionary = rockGrid.GetLinesAsDictionaries();
 			rockGrid.RollAllRocksNorth(ref rocksAsDictionary);
 
-			foreach (var dictionary in rocksAsDictionary.Values)
-			{
-				foreach(var symbol in dictionary.Values)
-				{
-					Console.Write(symbol);
-				}
-				Console.WriteLine();
-			}
-
 			long load = rockGrid.GetLoadFromRocks(rocksAsDictionary);
 
 			return load;
@@ -59,11 +50,14 @@ namespace AdventOfCode2023.SolutionsByDay.Day14
 			var rocksAsDictionary = rockGrid.GetLinesAsDictionaries();
 
 			long maxIterations = 1000000000;
-			List<long> fourthCycleMemory = [];
+			long lastLoad = 0;
+
+			// Keep track of each stringified, rolled, and rotated grid of rocks
+			// When we hit a duplicate, then we've found a pattern and can skip to the end of the billion cycle indices
+			Dictionary<string, long> gridsInMemory = [];
+			bool skipped = false;
 			for (long cycleIndex = 1; cycleIndex <= maxIterations; cycleIndex++)
 			{
-				// Todo: Store each rotationIndex's load in lists,
-				// and when they all appear in each list already then push the cycleIndex
 
 				// Roll, then rotate. A cycle is 4 rolls and 4 rotations
 				for (long rotationIndex = 1; rotationIndex <= 4; rotationIndex++)
@@ -73,21 +67,25 @@ namespace AdventOfCode2023.SolutionsByDay.Day14
 					long loadAfterRolling = rockGrid.GetLoadFromRocks(rocksAsDictionary);
 					Console.WriteLine($"Cycle {cycleIndex}. Rotation {rotationIndex}. Load: {loadAfterRolling}");
 
-					if (rotationIndex == 4 && cycleIndex < 950000000)
+					if (!skipped)
 					{
-						if (fourthCycleMemory.Contains(loadAfterRolling))
+						string rockGridString = rocksAsDictionary.Values.Aggregate("", (str, dictionary) => {
+							return str + dictionary.Aggregate("", (innerStr, kvp) => innerStr + kvp.Value.ToString());
+						});
+						if (gridsInMemory.TryGetValue(rockGridString, out long cycleIndexCycleStartedAt))
 						{
-							cycleIndex = maxIterations - cycleIndex - 1;
+							long lengthOfCyclePattern = cycleIndex - cycleIndexCycleStartedAt;
+							long amountToSkip = (long)Math.Floor((maxIterations - cycleIndex) / (double)lengthOfCyclePattern);
+							cycleIndex += amountToSkip * lengthOfCyclePattern;
+							skipped = true;
 						}
-						else
-						{
-							fourthCycleMemory.Add(loadAfterRolling);
-						}
+						gridsInMemory[rockGridString] = cycleIndex;
 					}
+					lastLoad = loadAfterRolling;
 				}
 			}
 
-			return 0;
+			return lastLoad;
 		}
 	}
 }
